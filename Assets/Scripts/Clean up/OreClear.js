@@ -31,26 +31,29 @@ function OnCollisionEnter2D(coll : Collision2D){
 }
 
 function Update () {
-	/*var blurpPos : Vector2;
-	var thePos : Vector2;*/
+	
+	/*if (dist < 200) {
+		var direction = blurpPos - thePos;
+		var angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+		rigidbody2D.AddForce(transform.right * 5 * 10f);
+	}*/
+}
+
+function FixedUpdate() {
 	blurp = GameObject.Find("Blurp");
 	thePos = this.transform.position;
 	blurpPos = blurp.transform.position;
-	//Debug.Log(blurpPos);
      
-	dist += (this.transform.position - blurp.transform.position).magnitude;
-	if (dist < 1000) {
+	dist = (thePos - blurpPos).magnitude;
+
+	if (dist < 10) {
 		var direction = blurpPos - thePos;
 		var angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
 		rigidbody2D.AddForce(transform.right * 5 * 10f);
 	}
-	
-	thisTransform.position.x = Mathf.Lerp
-     (thisTransform.position.x, blurpPos.position.x, Time.deltaTime);
- 
-     thisTransform.position.y = Mathf.Lerp
-     (thisTransform.position.y, blurpPos.position.y, Time.deltaTime);
+
 }
 
 /*function LateUpdate()
