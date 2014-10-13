@@ -8,20 +8,9 @@ function Start() {
 	
 	var blurpPos : Vector2;
 	var thePos : Vector2;
-	/*thePos = this.transform.position;
-	blurpPos = blurp.transform.position;
-	*/
-	yield WaitForSeconds(1);
-	Debug.Log(dist);
-	yield WaitForSeconds(1);
-	Debug.Log(dist);
-	yield WaitForSeconds(1);
-	Debug.Log(dist);
-	yield WaitForSeconds(1);
-	Debug.Log(dist);
-	yield WaitForSeconds(1);
-	Debug.Log(dist);
-	//Destroy(gameObject);
+	
+	yield WaitForSeconds(20);
+	Destroy(gameObject);
 }
 
 function OnCollisionEnter2D(coll : Collision2D){
@@ -47,7 +36,7 @@ function FixedUpdate() {
      
 	dist = (thePos - blurpPos).magnitude;
 
-	if (dist < 10) {
+	if (dist < 6) {
 		var direction = blurpPos - thePos;
 		var angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
