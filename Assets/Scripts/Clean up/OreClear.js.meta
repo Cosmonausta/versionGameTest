@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 6bf09175399eb4d0488ca64883cee381
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - blurp: {fileID: 100000, guid: b253abbb602074952b41ed47f6454b78, type: 2}
+  - thisTransform: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
