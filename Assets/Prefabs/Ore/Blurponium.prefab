@@ -36,7 +36,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mass: 3
+  m_Mass: 1
   m_LinearDrag: 2
   m_AngularDrag: .0500000007
   m_GravityScale: 0
@@ -67,7 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf09175399eb4d0488ca64883cee381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blurp: {fileID: 100000, guid: b253abbb602074952b41ed47f6454b78, type: 2}
   dist: 0
   thisTransform: {fileID: 0}
 --- !u!212 &21200000

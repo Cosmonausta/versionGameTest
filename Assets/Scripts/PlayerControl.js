@@ -83,7 +83,7 @@ function Fire() {
 		cloneProjectile.gameObject.rigidbody2D.AddForce(cloneProjectile.transform.right * 12 * 100f);
 		var mousePosition : Vector3 = worldMousePosition;
 		
-		Debug.DrawLine(transform.position, mousePosition, Color.red);
+		Debug.DrawLine(transform.position, mousePosition, Color.grey);
 		yield WaitForSeconds(5);
 		Destroy(cloneProjectile);
 	}
