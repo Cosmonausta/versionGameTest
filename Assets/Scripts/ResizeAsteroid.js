@@ -15,7 +15,7 @@ function Awake() {
 }
 
 function Start() {
-	var randomNum  = [6f, 12f, 24f, 96f];
+	var randomNum  = [6f, 6f, 12f, 12f, 12f, 24f, 24f, 96f];
 	var randomSize = randomNum[Random.Range(0, randomNum.length)];
 	transform.localScale.x = randomSize;
 	transform.localScale.y = randomSize;
