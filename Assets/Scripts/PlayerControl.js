@@ -99,7 +99,7 @@ function Fire() {
 		var cloneProjectile = Instantiate(projectile, thePos, Quaternion.identity);
 		cloneProjectile.gameObject.name = "Projectile";
 		cloneProjectile.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-		cloneProjectile.gameObject.rigidbody2D.AddForce(cloneProjectile.transform.right * 12 * 100f);
+		cloneProjectile.gameObject.rigidbody2D.AddForce(cloneProjectile.transform.right * 16 * 100f);
 		var mousePosition : Vector3 = worldMousePosition;
 		
 		Debug.DrawLine(transform.position, mousePosition, Color.grey);

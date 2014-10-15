@@ -30,17 +30,21 @@ function FixedUpdate() {
 }
 
 function Resize() {
-	
 	var theScale : Vector3 = transform.localScale;
 	theScale.x = theScale.x / 2;
 	theScale.y = theScale.y / 2;
 	transform.localScale = theScale;
+	var randNum = [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 7];
+	var randOreDrop = randNum[Random.Range(0, randNum.length)];
 	
 	//Asteroid explode
 	if(theScale.x <= 3){
-		for (amount=0; amount<8; amount++)
+		for (amount=0; amount<8; amount++){
 			Debris(); 
+		}
+		for (amount=0; amount<randOreDrop; amount++){ 
 			OreDrop();
+		}
 		defColor = Color.grey;
 		gameObject.name = "Dead Asteroid";
 		rigidbody2D.drag = 0.5;
@@ -80,7 +84,7 @@ function Debris() {
 	var y = Random.Range(-1f, 1f);
 	var direction = Vector2(x, y);
 	cloneDebris.gameObject.rigidbody2D.AddForce(direction * 10 * 80f);
-	yield WaitForSeconds(11);
+	yield WaitForSeconds(25);
 	Destroy(cloneDebris);
 }
 
@@ -90,16 +94,16 @@ function OreDrop() {
 	
 	randomNum = ["Blorponium", "Blurponium"];
 	var randomOre = randomNum[Random.Range(0, randomNum.length)];
-	/*if(weightedRandomNum < 6){
+	if(weightedRandomNum < 7){
 		randomOre = "Blurponium";
-	}else if(weightedRandomNum > 6){
-		randomOre = "Bloroponium";
-	}*/
+	}else if(weightedRandomNum >= 7){
+		randomOre = "Blorponium";
+	}
 	
 	switch(randomOre){
 	case "Blurponium":
 	
-		var cloneBlurpOre = Instantiate(ore[0], thePos, Quaternion.identity);
+		var cloneBlurpOre = Instantiate(ore[1], thePos, Quaternion.identity);
 		cloneBlurpOre.gameObject.name = "Blurponium";
 		var blurpX = Random.Range(-1f, 1f);
 		var blurpY = Random.Range(-1f, 1f);
@@ -109,7 +113,7 @@ function OreDrop() {
 	
 	case "Blorponium":
 	
-		var cloneBlorpOre = Instantiate(ore[1], thePos, Quaternion.identity);
+		var cloneBlorpOre = Instantiate(ore[0], thePos, Quaternion.identity);
 		cloneBlorpOre.gameObject.name = "Blorponium";
 		var blorpX = Random.Range(-1f, 1f);
 		var blorpY = Random.Range(-1f, 1f);
@@ -124,7 +128,3 @@ function SetDamageState() {
 	yield WaitForSeconds (0.1);
 	damageState = false;
 }
-
-
-
-
