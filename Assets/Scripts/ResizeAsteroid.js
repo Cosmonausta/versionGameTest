@@ -15,10 +15,13 @@ function Awake() {
 }
 
 function Start() {
-	var randomNum  = [6f, 12f, 24f];
+	var randomNum  = [6f, 12f, 24f, 96f];
 	var randomSize = randomNum[Random.Range(0, randomNum.length)];
 	transform.localScale.x = randomSize;
 	transform.localScale.y = randomSize;
+	if(transform.localScale.x > 24f){
+		health = 8;
+	}
 }
 
 function FixedUpdate() {
@@ -31,9 +34,11 @@ function FixedUpdate() {
 
 function Resize() {
 	var theScale : Vector3 = transform.localScale;
+	
 	theScale.x = theScale.x / 2;
 	theScale.y = theScale.y / 2;
 	transform.localScale = theScale;
+	
 	var randNum = [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 7];
 	var randOreDrop = randNum[Random.Range(0, randNum.length)];
 	
@@ -60,7 +65,11 @@ function OnTriggerEnter2D (coll : Collider2D) {
 		SetDamageState();
 		if(health == 0 && theScale.x > 3){
 			Resize();
-			health = 4;
+			if(transform.localScale.x > 24f){
+				health = 8;
+			}else{
+				health = 4;
+			}
 			for (amount=0; amount<4; amount++)
 				Debris(); 
 		}
@@ -92,7 +101,7 @@ function OreDrop() {
 	var thePos : Vector3 = transform.position;
 	var weightedRandomNum = Random.Range(0, 10);
 	
-	randomNum = ["Blorponium", "Blurponium"];
+	randomNum = ["Blurponium", "Blorponium"];
 	var randomOre = randomNum[Random.Range(0, randomNum.length)];
 	if(weightedRandomNum < 7){
 		randomOre = "Blurponium";
@@ -103,7 +112,7 @@ function OreDrop() {
 	switch(randomOre){
 	case "Blurponium":
 	
-		var cloneBlurpOre = Instantiate(ore[1], thePos, Quaternion.identity);
+		var cloneBlurpOre = Instantiate(ore[0], thePos, Quaternion.identity);
 		cloneBlurpOre.gameObject.name = "Blurponium";
 		var blurpX = Random.Range(-1f, 1f);
 		var blurpY = Random.Range(-1f, 1f);
@@ -113,7 +122,7 @@ function OreDrop() {
 	
 	case "Blorponium":
 	
-		var cloneBlorpOre = Instantiate(ore[0], thePos, Quaternion.identity);
+		var cloneBlorpOre = Instantiate(ore[1], thePos, Quaternion.identity);
 		cloneBlorpOre.gameObject.name = "Blorponium";
 		var blorpX = Random.Range(-1f, 1f);
 		var blorpY = Random.Range(-1f, 1f);
