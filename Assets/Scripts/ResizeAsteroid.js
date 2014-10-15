@@ -105,9 +105,9 @@ function OreDrop() {
 	
 	randomNum = ["Blurponium", "Blorponium"];
 	var randomOre = randomNum[Random.Range(0, randomNum.length)];
-	if(weightedRandomNum < 7){
+	if(weightedRandomNum < 6){
 		randomOre = "Blurponium";
-	}else if(weightedRandomNum >= 7){
+	}else if(weightedRandomNum >= 6){
 		randomOre = "Blorponium";
 	}
 	

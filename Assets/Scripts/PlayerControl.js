@@ -21,11 +21,11 @@ function Start() {
 }
 
 function UpdateBlurponium(){
-	blurpText.text = "BLURPONIUM: " + oreBlurponium;
+	blurpText.text = "" + oreBlurponium;
 }
 
 function UpdateBlorponium(){
-	blorpText.text = "BLORPONIUM: " + oreBlorponium;
+	blorpText.text = "" + oreBlorponium;
 }
 
 function FixedUpdate() {
