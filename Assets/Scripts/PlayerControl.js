@@ -8,6 +8,25 @@ var moveForce : float = 50f;
 var oreBlurponium : int;
 var oreBlorponium : int;
 var projectile : GameObject;
+var blurpText : GUIText;
+var blorpText : GUIText;
+
+function Start() {
+	blurpText = GameObject.Find("BlurpText").guiText;
+	blorpText = GameObject.Find("BlorpText").guiText;
+	UpdateBlurponium();
+	UpdateBlorponium();
+	oreBlurponium = 0;
+	oreBlorponium = 0;
+}
+
+function UpdateBlurponium(){
+	blurpText.text = "Blurponium: " + oreBlurponium;
+}
+
+function UpdateBlorponium(){
+	blorpText.text = "Blorponium: " + oreBlorponium;
+}
 
 function FixedUpdate() {
 
@@ -101,9 +120,12 @@ function OnCollisionEnter2D (coll : Collision2D) {
 		SetDamageState();
 	}
 	if(coll.gameObject.name == "Blurponium") {
-		oreBlurponium++;
+		oreBlurponium = oreBlurponium + 1;
+		UpdateBlurponium();
+		
 	}
 	if(coll.gameObject.name == "Blorponium") {
-		oreBlorponium++;
+		oreBlorponium = oreBlorponium + 1;
+		UpdateBlorponium();
 	}
 }
