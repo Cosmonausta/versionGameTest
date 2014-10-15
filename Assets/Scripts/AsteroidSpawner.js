@@ -14,7 +14,7 @@ function Start () {
 }
 
 function Spawn () {
-	spawnTime = Random.Range(6f, 10f);
+	spawnTime = Random.Range(2f, 6f);
 	var pos : Vector3 = Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0.0);
 	var cloneAsteroid = Instantiate(asteroid, pos, Quaternion.identity);
 	cloneAsteroid.gameObject.name = "Asteroid";

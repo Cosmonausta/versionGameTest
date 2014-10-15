@@ -39,7 +39,7 @@ function Resize() {
 	theScale.y = theScale.y / 2;
 	transform.localScale = theScale;
 	
-	var randNum = [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 7];
+	var randNum = [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 8];
 	var randOreDrop = randNum[Random.Range(0, randNum.length)];
 	
 	//Asteroid explode
@@ -93,7 +93,7 @@ function Debris() {
 	var y = Random.Range(-1f, 1f);
 	var direction = Vector2(x, y);
 	cloneDebris.gameObject.rigidbody2D.AddForce(direction * 10 * 80f);
-	yield WaitForSeconds(25);
+	yield WaitForSeconds(45);
 	Destroy(cloneDebris);
 }
 
