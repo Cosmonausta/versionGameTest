@@ -62,6 +62,7 @@ function OnTriggerEnter2D (coll : Collider2D) {
 	
 	if(coll.gameObject.name == "Projectile") {
 		health--;
+		Debris();
 		SetDamageState();
 		if(health == 0 && theScale.x > 3){
 			Resize();
@@ -79,7 +80,7 @@ function OnTriggerEnter2D (coll : Collider2D) {
 			SetDamageState();
 			Resize();
 			health = 4;
-			for (amount=0; amount<10; amount++)
+			for (amount=0; amount<20; amount++)
 				Debris(); 
 		}
 	}
@@ -87,12 +88,13 @@ function OnTriggerEnter2D (coll : Collider2D) {
 
 function Debris() {
 	var thePos : Vector3 = transform.position;
+	var randSpeed = Random.Range(40f, 80f);
 	var cloneDebris = Instantiate(debris, thePos, Quaternion.identity);
 	cloneDebris.gameObject.name = "Debris";
 	var x = Random.Range(-1f, 1f);
 	var y = Random.Range(-1f, 1f);
 	var direction = Vector2(x, y);
-	cloneDebris.gameObject.rigidbody2D.AddForce(direction * 10 * 80f);
+	cloneDebris.gameObject.rigidbody2D.AddForce(direction * 10 * randSpeed);
 	yield WaitForSeconds(45);
 	Destroy(cloneDebris);
 }
