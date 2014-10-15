@@ -850,13 +850,13 @@ GUIText:
   m_GameObject: {fileID: 1052698938}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: 'Blorponium:'
+  m_Text: 
   m_Anchor: 0
   m_Alignment: 0
   m_PixelOffset: {x: 0, y: 0}
   m_LineSpacing: 1
   m_TabSize: 4
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: 9396767553a054d538cee5bbf244ee03, type: 3}
   m_Material: {fileID: 0}
   m_FontSize: 20
   m_FontStyle: 0
@@ -1472,13 +1472,13 @@ GUIText:
   m_GameObject: {fileID: 1786765297}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: 'Blurponium:'
+  m_Text: 
   m_Anchor: 0
   m_Alignment: 0
   m_PixelOffset: {x: 0, y: 0}
   m_LineSpacing: 1
   m_TabSize: 4
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: 9396767553a054d538cee5bbf244ee03, type: 3}
   m_Material: {fileID: 0}
   m_FontSize: 20
   m_FontStyle: 0
