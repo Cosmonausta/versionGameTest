@@ -27,9 +27,9 @@ TagManager:
   User Layer 11: Pickups
   User Layer 12: Ground
   User Layer 13: Asteroids
-  User Layer 14: GUI
-  User Layer 15: 
-  User Layer 16: 
+  User Layer 14: Ore
+  User Layer 15: Effects
+  User Layer 16: GUI
   User Layer 17: 
   User Layer 18: 
   User Layer 19: 
@@ -65,6 +65,10 @@ TagManager:
   - name: Foreground
     userID: 3
     uniqueID: 1024582385
+    locked: 0
+  - name: Effects
+    userID: 6
+    uniqueID: 3705863983
     locked: 0
   - name: UI
     userID: 5

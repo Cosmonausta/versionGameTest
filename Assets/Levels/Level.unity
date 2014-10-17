@@ -695,6 +695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageState: 0
+  isActive: 0
   maxSpeed: 100
   moveForce: 500
   oreBlurponium: 0
@@ -1008,7 +1009,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_SortingLayerID: 149272721
   m_Sprite: {fileID: 21300000, guid: 6dd38979a7aa0401ca9867ac5c36db6c, type: 3}
@@ -1611,7 +1612,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_SortingLayerID: 149272721
   m_Sprite: {fileID: 21300000, guid: b8701a9de6cbe418cb6d24d6bbf04e65, type: 3}

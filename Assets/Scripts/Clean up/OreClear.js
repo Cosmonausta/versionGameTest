@@ -12,7 +12,7 @@ function Start() {
 	Destroy(gameObject);
 }
 
-function OnCollisionEnter2D(coll : Collision2D){
+function OnTriggerEnter2D(coll : Collider2D){
 	if(coll.gameObject.name == "Blurp"){
 		Destroy(gameObject);
 	}

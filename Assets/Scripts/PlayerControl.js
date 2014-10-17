@@ -2,6 +2,8 @@
 var damageColor : Color = Color.red;
 @HideInInspector
 var damageState : boolean = false;
+@HideInInspector
+var isActive : boolean = false;
 
 var maxSpeed : float = 100f;
 var moveForce : float = 50f;
@@ -34,10 +36,7 @@ function FixedUpdate() {
 		Fire();
 	}
 	if(Input.GetButtonDown("Boost")) {
-		rigidbody2D.drag = 3;
-	}
-	if(Input.GetButtonUp("Boost")) {
-		rigidbody2D.drag = 7;
+		Boost();
 	}
 	
 	if(damageState){
@@ -87,6 +86,16 @@ function SetDamageState() {
 	damageState = false;
 }
 
+function Boost() {
+	if(!isActive){
+		isActive = true;
+		rigidbody2D.drag = 3;
+	}else if(isActive){
+		isActive = false;
+		rigidbody2D.drag = 7;
+	}
+}
+
 function Fire() {
 	if(!damageState) {
 		var mousePos = Input.mousePosition;
@@ -99,7 +108,7 @@ function Fire() {
 		var cloneProjectile = Instantiate(projectile, thePos, Quaternion.identity);
 		cloneProjectile.gameObject.name = "Projectile";
 		cloneProjectile.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-		cloneProjectile.gameObject.rigidbody2D.AddForce(cloneProjectile.transform.right * 16 * 100f);
+		cloneProjectile.gameObject.rigidbody2D.AddForce(cloneProjectile.transform.right * 18 * 100f);
 		var mousePosition : Vector3 = worldMousePosition;
 		
 		Debug.DrawLine(transform.position, mousePosition, Color.grey);
@@ -113,9 +122,7 @@ function OnTriggerEnter2D (coll : Collider2D) {
 	{
 	SetDamageState();
 	}
-}
-
-function OnCollisionEnter2D (coll : Collision2D) {
+	
 	if(coll.gameObject.name == "Debris") {
 		SetDamageState();
 	}
@@ -129,3 +136,18 @@ function OnCollisionEnter2D (coll : Collision2D) {
 		UpdateBlorponium();
 	}
 }
+
+/*function OnCollisionEnter2D (coll : Collision2D) {
+	if(coll.gameObject.name == "Debris") {
+		SetDamageState();
+	}
+	if(coll.gameObject.name == "Blurponium") {
+		oreBlurponium = oreBlurponium + 1;
+		UpdateBlurponium();
+		
+	}
+	if(coll.gameObject.name == "Blorponium") {
+		oreBlorponium = oreBlorponium + 1;
+		UpdateBlorponium();
+	}
+}*/
