@@ -1,6 +1,7 @@
-﻿#pragma strict
-var Debris : Transform;
+﻿
 
-function Start () {
-	Destroy(Debris.gameObject, 5);
+function OnTriggerEnter2D (coll : Collider2D) {
+	if(coll.gameObject.name == "Projectile") {
+		Destroy(this.gameObject);
+	}
 }

@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: b1eac9aa9839c4e99876fb7c80e499fd
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - blorpText: {fileID: 100000, guid: 319db04c2377c1045981e73be3a0e090, type: 2}
+  - blurpText: {fileID: 100000, guid: 5dd35f27f592bdd408af838b5f15fa11, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

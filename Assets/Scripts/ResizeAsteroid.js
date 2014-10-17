@@ -63,8 +63,10 @@ function OnTriggerEnter2D (coll : Collider2D) {
 	
 	if(coll.gameObject.name == "Projectile") {
 		health--;
-		Debris();
 		SetDamageState();
+		if(this.gameObject.name == "Asteroid"){
+			Debris();
+		}
 		if(health == 0 && theScale.x > 3){
 			Resize();
 			if(transform.localScale.x > 24f){
