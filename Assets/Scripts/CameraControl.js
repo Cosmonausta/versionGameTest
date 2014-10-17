@@ -3,6 +3,11 @@ var GUIBlurp : GameObject;
 var blorpText : GameObject;
 var blurpText : GameObject;
 
+function Start () {
+	GUIBlorp.gameObject.renderer.enabled = true;
+	GUIBlurp.gameObject.renderer.enabled = true;
+}
+
 function Update () {
 	if(Input.GetKeyDown(KeyCode.LeftShift)){
 		camera.orthographicSize = 45;

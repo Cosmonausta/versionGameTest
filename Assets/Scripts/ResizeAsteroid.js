@@ -64,8 +64,11 @@ function OnTriggerEnter2D (coll : Collider2D) {
 	if(coll.gameObject.name == "Projectile") {
 		health--;
 		SetDamageState();
+		//Check if asteroid is dead
 		if(this.gameObject.name == "Asteroid"){
-			Debris();
+			var randDebris = Random.Range(1,3);
+			for (amount=0; amount<randDebris; amount++)
+				Debris(); 
 		}
 		if(health == 0 && theScale.x > 3){
 			Resize();

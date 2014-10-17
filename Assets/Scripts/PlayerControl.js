@@ -46,7 +46,7 @@ function FixedUpdate() {
 	if(damageState){
 		defaultColor = damageColor;
 	}else if(isActive){
-		defaultColor = Color.green;
+		defaultColor = Color.cyan;
 	}else{
 		defaultColor = Color.white;
 	}
@@ -88,12 +88,15 @@ function FixedUpdate() {
 
 function SetDamageState() {
 	damageState = true;
-	yield WaitForSeconds (2);
+	if(isActive){
+		Boost();
+	}
+	yield WaitForSeconds (0.7);
 	damageState = false;
 }
 
 function Boost() {
-	if(!isActive){
+	if(!isActive && !damageState){
 		isActive = true;
 		rigidbody2D.drag = 3;
 	}else if(isActive){
