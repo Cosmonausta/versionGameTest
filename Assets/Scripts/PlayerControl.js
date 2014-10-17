@@ -1,6 +1,8 @@
 ﻿@HideInInspector
 var damageColor : Color = Color.red;
 @HideInInspector
+var defaultColor : Color;
+@HideInInspector
 var damageState : boolean = false;
 @HideInInspector
 var isActive : boolean = false;
@@ -39,10 +41,14 @@ function FixedUpdate() {
 		Boost();
 	}
 	
+	transform.renderer.material.color = defaultColor;
+	
 	if(damageState){
-		transform.renderer.material.color = damageColor;
+		defaultColor = damageColor;
+	}else if(isActive){
+		defaultColor = Color.green;
 	}else{
-		transform.renderer.material.color = Color.white;
+		defaultColor = Color.white;
 	}
 	
 	//Horizontal movement
@@ -111,7 +117,7 @@ function Fire() {
 		cloneProjectile.gameObject.rigidbody2D.AddForce(cloneProjectile.transform.right * 18 * 100f);
 		var mousePosition : Vector3 = worldMousePosition;
 		
-		Debug.DrawLine(transform.position, mousePosition, Color.grey);
+		//Debug.DrawLine(transform.position, mousePosition, Color.grey);
 		yield WaitForSeconds(5);
 		Destroy(cloneProjectile);
 	}
@@ -122,14 +128,9 @@ function OnTriggerEnter2D (coll : Collider2D) {
 	{
 	SetDamageState();
 	}
-	
-	if(coll.gameObject.name == "Debris") {
-		SetDamageState();
-	}
 	if(coll.gameObject.name == "Blurponium") {
 		oreBlurponium = oreBlurponium + 1;
 		UpdateBlurponium();
-		
 	}
 	if(coll.gameObject.name == "Blorponium") {
 		oreBlorponium = oreBlorponium + 1;
@@ -137,17 +138,9 @@ function OnTriggerEnter2D (coll : Collider2D) {
 	}
 }
 
-/*function OnCollisionEnter2D (coll : Collision2D) {
+function OnCollisionEnter2D (coll : Collision2D) {
 	if(coll.gameObject.name == "Debris") {
 		SetDamageState();
 	}
-	if(coll.gameObject.name == "Blurponium") {
-		oreBlurponium = oreBlurponium + 1;
-		UpdateBlurponium();
-		
-	}
-	if(coll.gameObject.name == "Blorponium") {
-		oreBlorponium = oreBlorponium + 1;
-		UpdateBlorponium();
-	}
-}*/
+}
+

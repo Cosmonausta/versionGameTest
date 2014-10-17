@@ -1845,6 +1845,8 @@ MonoBehaviour:
   maxY: 600
   spawnTime: 5
   spawnDelay: 4
+  blurp: {fileID: 0}
+  dist: 0
 --- !u!4 &1675565091
 Transform:
   m_ObjectHideFlags: 0

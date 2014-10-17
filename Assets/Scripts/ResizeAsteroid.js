@@ -15,7 +15,8 @@ function Awake() {
 }
 
 function Start() {
-	var randomNum  = [6f, 6f, 12f, 12f, 12f, 24f, 24f, 96f];
+	var randomNum  = [6f, 6f, 6f, 6f, 12f, 12f, 12f, 12f, 
+					  12f, 12f, 24f, 24f, 24f, 24f, 96f];
 	var randomSize = randomNum[Random.Range(0, randomNum.length)];
 	transform.localScale.x = randomSize;
 	transform.localScale.y = randomSize;
@@ -88,7 +89,10 @@ function OnTriggerEnter2D (coll : Collider2D) {
 
 function Debris() {
 	var thePos : Vector3 = transform.position;
-	var randSpeed = Random.Range(40f, 80f);
+	var speedRange = Random.Range(40f, 65f);
+	var speedArray = [speedRange, speedRange, speedRange, speedRange,
+					  speedRange, speedRange, speedRange, speedRange, 120f];
+	var randSpeed = speedArray[Random.Range(0, speedArray.length)];
 	var cloneDebris = Instantiate(debris, thePos, Quaternion.identity);
 	cloneDebris.gameObject.name = "Debris";
 	var x = Random.Range(-1f, 1f);
@@ -119,7 +123,7 @@ function OreDrop() {
 		var blurpX = Random.Range(-1f, 1f);
 		var blurpY = Random.Range(-1f, 1f);
 		var blurpDirection = Vector2(blurpX, blurpY);
-		cloneBlurpOre.gameObject.rigidbody2D.AddForce(blurpDirection * 3 * 30f);
+		cloneBlurpOre.gameObject.rigidbody2D.AddForce(blurpDirection * 7 * 30f);
 		break;
 	
 	case "Blorponium":
@@ -129,7 +133,7 @@ function OreDrop() {
 		var blorpX = Random.Range(-1f, 1f);
 		var blorpY = Random.Range(-1f, 1f);
 		var blorpDirection = Vector2(blorpX, blorpY);
-		cloneBlorpOre.gameObject.rigidbody2D.AddForce(blorpDirection * 3 * 30f);
+		cloneBlorpOre.gameObject.rigidbody2D.AddForce(blorpDirection * 7 * 30f);
 		break;
 	}
 }

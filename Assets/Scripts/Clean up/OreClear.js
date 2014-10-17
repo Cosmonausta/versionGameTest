@@ -8,7 +8,7 @@ function Start() {
 	var blurpPos : Vector2;
 	var thePos : Vector2;
 	
-	yield WaitForSeconds(20);
+	yield WaitForSeconds(40);
 	Destroy(gameObject);
 }
 
@@ -30,7 +30,6 @@ function FixedUpdate() {
 		var direction = blurpPos - thePos;
 		var angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-		rigidbody2D.AddForce(transform.right * 5 * 20f);
+		rigidbody2D.AddForce(transform.right * 3 * 20f);
 	}
-
 }
