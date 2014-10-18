@@ -2060,9 +2060,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
+  - {fileID: 384523091}
   - {fileID: 1287170156}
   - {fileID: 828651413}
-  - {fileID: 384523091}
   m_Father: {fileID: 0}
 --- !u!114 &577046310
 MonoBehaviour:
@@ -2080,6 +2080,8 @@ MonoBehaviour:
   defaultColor: {r: 0, g: 0, b: 0, a: 0}
   damageState: 0
   isActive: 0
+  isAlive: 1
+  playerHealth: 0
   maxSpeed: 100
   moveForce: 500
   oreBlurponium: 0
@@ -2087,6 +2089,8 @@ MonoBehaviour:
   projectile: {fileID: 100000, guid: d42b6794ed6774b99964e9bb7338b70c, type: 2}
   blurpText: {fileID: 0}
   blorpText: {fileID: 0}
+  healthText: {fileID: 0}
+  debris: {fileID: 100000, guid: 9f5586fbe7bb047cb99bc0346bb2e0b0, type: 2}
 --- !u!50 &577046311
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2433,6 +2437,7 @@ Transform:
   m_Children:
   - {fileID: 1052698940}
   - {fileID: 1786765298}
+  - {fileID: 1110660522}
   m_Father: {fileID: 0}
 --- !u!1 &976385041
 GameObject:
@@ -2602,6 +2607,56 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 844153746}
+--- !u!1 &1110660521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1110660522}
+  - 132: {fileID: 1110660523}
+  m_Layer: 0
+  m_Name: HealthText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1110660522
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1110660521}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.0450000018, y: .800000012, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 844153746}
+--- !u!132 &1110660523
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1110660521}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: 'Health: 5'
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 0, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: 0ddee4e970ae12e4fb93bc01ccee5757, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 30
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1001 &1225741146
 Prefab:
   m_ObjectHideFlags: 0

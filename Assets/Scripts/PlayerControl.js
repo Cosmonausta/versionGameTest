@@ -6,6 +6,10 @@ var defaultColor : Color;
 var damageState : boolean = false;
 @HideInInspector
 var isActive : boolean = false;
+@HideInInspector
+var isAlive : boolean = true;
+@HideInInspector
+var playerHealth : int;
 
 var maxSpeed : float = 100f;
 var moveForce : float = 50f;
@@ -14,14 +18,19 @@ var oreBlorponium : int;
 var projectile : GameObject;
 var blurpText : GUIText;
 var blorpText : GUIText;
+var healthText : GUIText;
+var debris : GameObject; 
 
 function Start() {
 	blurpText = GameObject.Find("BlurpText").guiText;
 	blorpText = GameObject.Find("BlorpText").guiText;
-	UpdateBlurponium();
-	UpdateBlorponium();
+	healthText = GameObject.Find("HealthText").guiText;
 	oreBlurponium = 0;
 	oreBlorponium = 0;
+	playerHealth = 3;
+	UpdateBlurponium();
+	UpdateBlorponium();
+	UpdateHealth();
 }
 
 function UpdateBlurponium(){
@@ -30,6 +39,13 @@ function UpdateBlurponium(){
 
 function UpdateBlorponium(){
 	blorpText.text = "" + oreBlorponium;
+}
+
+function UpdateHealth(){
+	healthText.text = "Health: " + playerHealth;
+	if(playerHealth <= 0){
+		Death();
+	}
 }
 
 function FixedUpdate() {
@@ -49,6 +65,10 @@ function FixedUpdate() {
 		defaultColor = Color.cyan;
 	}else{
 		defaultColor = Color.white;
+	}
+	
+	if(!isAlive){
+		moveForce = 0;
 	}
 	
 	//Horizontal movement
@@ -87,12 +107,18 @@ function FixedUpdate() {
 }
 
 function SetDamageState() {
-	damageState = true;
-	if(isActive){
-		Boost();
+	if(!damageState){
+		damageState = true;
+		if(playerHealth > 0){
+			playerHealth--;
+		}
+		UpdateHealth();
+		if(isActive && isAlive){
+			Boost();
+		}
+		yield WaitForSeconds (0.7);
+		damageState = false;
 	}
-	yield WaitForSeconds (0.7);
-	damageState = false;
 }
 
 function Boost() {
@@ -106,7 +132,7 @@ function Boost() {
 }
 
 function Fire() {
-	if(!damageState) {
+	if(!damageState && isAlive) {
 		var mousePos = Input.mousePosition;
 		var thePos : Vector3 = transform.position;      
 		//The distance from the camera to the player object
@@ -124,6 +150,30 @@ function Fire() {
 		yield WaitForSeconds(5);
 		Destroy(cloneProjectile);
 	}
+}
+
+function Death(){
+	isAlive = false;
+	var randDebris = Random.Range(8, 14);
+	for (amount=0; amount<randDebris; amount++){
+		Debris(); 
+	}
+	this.gameObject.renderer.enabled = false;
+	yield WaitForSeconds(4);
+	Application.LoadLevel("Level");
+}
+
+function Debris() {
+	var thePos : Vector3 = transform.position;
+	var randSpeed = Random.Range(40f, 65f);
+	var cloneDebris = Instantiate(debris, thePos, Quaternion.identity);
+	cloneDebris.gameObject.name = "Debris"; 
+	var x = Random.Range(-1f, 1f);
+	var y = Random.Range(-1f, 1f);
+	var direction = Vector2(x, y);
+	cloneDebris.gameObject.rigidbody2D.AddForce(direction * 10 * randSpeed);
+	yield WaitForSeconds(45);
+	Destroy(cloneDebris);
 }
 
 function OnTriggerEnter2D (coll : Collider2D) {
@@ -146,4 +196,3 @@ function OnCollisionEnter2D (coll : Collision2D) {
 		SetDamageState();
 	}
 }
-

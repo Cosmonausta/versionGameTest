@@ -25,7 +25,7 @@ function Spawn () {
      
 	dist = (pos - blurpPos).magnitude;
 	
-	if (dist > 60) {
+	if (dist > 50) {
 		var cloneAsteroid = Instantiate(asteroid, pos, Quaternion.identity);
 		cloneAsteroid.gameObject.name = "Asteroid";
 	}else{

@@ -143,12 +143,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageColor: {r: 1, g: 0, b: 0, a: 1}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
   damageState: 0
+  isActive: 0
+  isAlive: 1
+  playerHealth: 0
   maxSpeed: 100
   moveForce: 500
   oreBlurponium: 0
   oreBlorponium: 0
   projectile: {fileID: 100000, guid: d42b6794ed6774b99964e9bb7338b70c, type: 2}
+  blurpText: {fileID: 0}
+  blorpText: {fileID: 0}
+  healthText: {fileID: 0}
+  debris: {fileID: 100000, guid: 9f5586fbe7bb047cb99bc0346bb2e0b0, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,6 +168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1eac9aa9839c4e99876fb7c80e499fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GUIBlorp: {fileID: 0}
+  GUIBlurp: {fileID: 0}
+  blorpText: {fileID: 0}
+  blurpText: {fileID: 0}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
