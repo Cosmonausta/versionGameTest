@@ -27,7 +27,7 @@ function Start() {
 	healthText = GameObject.Find("HealthText").guiText;
 	oreBlurponium = 0;
 	oreBlorponium = 0;
-	playerHealth = 3;
+	playerHealth = 5;
 	UpdateBlurponium();
 	UpdateBlorponium();
 	UpdateHealth();
@@ -116,7 +116,7 @@ function SetDamageState() {
 		if(isActive && isAlive){
 			Boost();
 		}
-		yield WaitForSeconds (0.7);
+		yield WaitForSeconds (1);
 		damageState = false;
 	}
 }
