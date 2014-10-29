@@ -61,9 +61,13 @@ function OnTriggerEnter2D (coll : Collider2D) {
 	var theScale : Vector3 = transform.localScale;
 	var amount = 0;
 	
-	if(coll.gameObject.name == "Projectile") {
-		health--;
+	if(coll.gameObject.name == "Projectile" || coll.gameObject.name == "Missile") {
 		SetDamageState();
+		if(coll.gameObject.name == "Projectile"){
+			health--;
+		}else if(coll.gameObject.name == "Missile"){
+			health = 0;
+		}
 		//Check if asteroid is dead
 		if(this.gameObject.name == "Asteroid"){
 			var randDebris = Random.Range(1,3);

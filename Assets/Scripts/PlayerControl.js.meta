@@ -2,7 +2,14 @@ fileFormatVersion: 2
 guid: 4ee3f91cdb4c94185b76ca02080e7dc4
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - currTarget: {instanceID: 0}
+  - projectile: {fileID: 100000, guid: d42b6794ed6774b99964e9bb7338b70c, type: 2}
+  - missile: {fileID: 100000, guid: 88e39cb3fb8b8494fbfa5889215c88ff, type: 2}
+  - blurpText: {instanceID: 0}
+  - blorpText: {instanceID: 0}
+  - healthText: {instanceID: 0}
+  - debris: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

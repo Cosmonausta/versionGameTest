@@ -1,7 +1,7 @@
 ﻿var radius = 5.0;
 var power = 10.0;
 function OnTriggerEnter2D (coll : Collider2D) {
-	if(coll.gameObject.name == "Projectile" || coll.gameObject.name == "Missile"){
+	if(coll.gameObject.name == "Debris"){
 	// Applies an explosion force to all nearby rigidbodies
 	var explosionPos : Vector3 = transform.position;
 	var colliders : Collider[] = Physics.OverlapSphere (explosionPos, radius);
@@ -16,5 +16,4 @@ function OnTriggerEnter2D (coll : Collider2D) {
 	     hit.rigidbody.AddExplosionForce(power, explosionPos, radius, 3.0);
     }
 	}
-	Destroy(this.gameObject);
 }

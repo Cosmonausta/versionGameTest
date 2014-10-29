@@ -10,12 +10,17 @@ var isActive : boolean = false;
 var isAlive : boolean = true;
 @HideInInspector
 var playerHealth : int;
+@HideInInspector
+var currTarget : GameObject;
+@HideInInspector
+var currWeapon : String;
 
 var maxSpeed : float = 100f;
 var moveForce : float = 50f;
 var oreBlurponium : int;
 var oreBlorponium : int;
 var projectile : GameObject;
+var missile : GameObject;
 var blurpText : GUIText;
 var blorpText : GUIText;
 var healthText : GUIText;
@@ -31,6 +36,7 @@ function Start() {
 	UpdateBlurponium();
 	UpdateBlorponium();
 	UpdateHealth();
+	currWeapon = "Gun";
 }
 
 function UpdateBlurponium(){
@@ -104,6 +110,15 @@ function FixedUpdate() {
 	if(Input.GetButtonDown("Restart")) {
 		Application.LoadLevel("Level");
 	}
+	if(Input.GetButtonDown("Weapon 1")) {
+		currWeapon = "Gun";
+	}
+	if(Input.GetButtonDown("Weapon 2")) {
+		currWeapon = "Missile";
+	}
+	if(Input.GetButtonDown("Weapon 3")) {
+		currWeapon = "Stun";
+	}
 }
 
 function SetDamageState() {
@@ -140,15 +155,25 @@ function Fire() {
 		var worldMousePosition = Camera.main.ScreenToWorldPoint (mousePos);
 		var direction = worldMousePosition - transform.position;
 		var angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
-		var cloneProjectile = Instantiate(projectile, thePos, Quaternion.identity);
-		cloneProjectile.gameObject.name = "Projectile";
-		cloneProjectile.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-		cloneProjectile.gameObject.rigidbody2D.AddForce(cloneProjectile.transform.right * 18 * 100f);
-		var mousePosition : Vector3 = worldMousePosition;
-		
-		//Debug.DrawLine(transform.position, mousePosition, Color.grey);
-		yield WaitForSeconds(5);
-		Destroy(cloneProjectile);
+		if(currWeapon == "Gun"){
+			var cloneProjectile = Instantiate(projectile, thePos, Quaternion.identity);
+			cloneProjectile.gameObject.name = "Projectile";
+			cloneProjectile.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+			cloneProjectile.gameObject.rigidbody2D.AddForce(cloneProjectile.transform.right * 18 * 100f);
+			//var mousePosition : Vector3 = worldMousePosition;
+			
+			yield WaitForSeconds(5);
+			Destroy(cloneProjectile);
+		}else if(currWeapon == "Missile"){
+			var cloneMissile = Instantiate(missile, thePos, Quaternion.identity);
+			cloneMissile.gameObject.name = "Missile";
+			cloneMissile.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+			cloneMissile.gameObject.rigidbody2D.AddForce(cloneMissile.transform.right * 18 * 100f);
+			//var mousePosition : Vector3 = worldMousePosition;
+			
+			yield WaitForSeconds(5);
+			Destroy(cloneMissile);
+		}
 	}
 }
 
