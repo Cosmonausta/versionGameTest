@@ -767,6 +767,10 @@ Prefab:
       propertyPath: GUIBlurp
       value: 
       objectReference: {fileID: 828651412}
+    - target: {fileID: 11400000, guid: b253abbb602074952b41ed47f6454b78, type: 2}
+      propertyPath: missile
+      value: 
+      objectReference: {fileID: 100000, guid: 88e39cb3fb8b8494fbfa5889215c88ff, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b253abbb602074952b41ed47f6454b78, type: 2}
   m_RootGameObject: {fileID: 577046308}
@@ -2082,11 +2086,14 @@ MonoBehaviour:
   isActive: 0
   isAlive: 1
   playerHealth: 0
+  currTarget: {fileID: 0}
+  currWeapon: 
   maxSpeed: 100
   moveForce: 500
   oreBlurponium: 0
   oreBlorponium: 0
   projectile: {fileID: 100000, guid: d42b6794ed6774b99964e9bb7338b70c, type: 2}
+  missile: {fileID: 100000, guid: 88e39cb3fb8b8494fbfa5889215c88ff, type: 2}
   blurpText: {fileID: 0}
   blorpText: {fileID: 0}
   healthText: {fileID: 0}
@@ -3428,7 +3435,7 @@ Transform:
   m_PrefabInternal: {fileID: 1850648706}
   m_GameObject: {fileID: 1683102142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.3107166, y: -10.6716747, z: 0}
+  m_LocalPosition: {x: 32.1098022, y: -10.534977, z: 0}
   m_LocalScale: {x: 24, y: 24, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3491,11 +3498,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: c2505e043f4ac41e0b05d08cdf83ac4e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 21.3107166
+      value: 32.1098022
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c2505e043f4ac41e0b05d08cdf83ac4e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -10.6716747
+      value: -10.534977
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c2505e043f4ac41e0b05d08cdf83ac4e, type: 2}
       propertyPath: m_LocalPosition.z

@@ -9,12 +9,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 50: {fileID: 5000000}
   - 61: {fileID: 6100000}
+  - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
-  m_Layer: 0
-  m_Name: Debris
-  m_TagString: PhysAffected
+  m_Layer: 8
+  m_Name: Stun
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.04905462, y: -3.99593949, z: .0009765625}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!50 &5000000
@@ -37,10 +37,10 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 0
+  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -53,8 +53,8 @@ BoxCollider2D:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: .209999993, y: .25}
+  m_IsTrigger: 1
+  m_Size: {x: .200000003, y: .230000004}
   m_Center: {x: 0, y: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -64,11 +64,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 585b1731ca953db419a4ed7533b07e24, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f78e0782d75a4e108585123cdfb1a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
-  power: 10
   boom: {fileID: 100000, guid: bf670376ff9f847be86009720bfdaffb, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
