@@ -1,6 +1,6 @@
 ﻿
 var damageColor : Color = Color.red;
-var defColor : Color = Color.white;
+var defaultColor : Color = Color.white;
 @HideInInspector
 var damageState : boolean = false;
 @HideInInspector
@@ -29,7 +29,11 @@ function FixedUpdate() {
 	if(damageState){
 		transform.renderer.material.color = damageColor;
 	}else{
-		transform.renderer.material.color = defColor;
+		transform.renderer.material.color = defaultColor;
+	}
+	if(Input.GetButtonDown("Weapon 1")) {
+		Debris();
+		Resize();
 	}
 }
 
@@ -51,7 +55,7 @@ function Resize() {
 		for (amount=0; amount<randOreDrop; amount++){ 
 			OreDrop();
 		}
-		defColor = Color.grey;
+		defaultColor = Color.grey;
 		gameObject.name = "Dead Asteroid";
 		rigidbody2D.drag = 0.5;
 	}
@@ -97,7 +101,6 @@ function OnTriggerEnter2D (coll : Collider2D) {
 }
 
 function Debris() {
-	Debug.Log("Debris!");
 	var thePos : Vector3 = transform.position;
 	var speedRange = Random.Range(40f, 65f);
 	var speedArray = [speedRange, speedRange, speedRange, speedRange,

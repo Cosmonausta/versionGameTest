@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageColor: {r: .352941155, g: .352941155, b: .352941155, a: 1}
-  defColor: {r: 1, g: 1, b: 1, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
   damageState: 0
   health: 0
   debris: {fileID: 100000, guid: 9f5586fbe7bb047cb99bc0346bb2e0b0, type: 2}
@@ -2214,7 +2214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageColor: {r: .352941155, g: .352941155, b: .352941155, a: 1}
-  defColor: {r: 1, g: 1, b: 1, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
   damageState: 0
   health: 0
   debris: {fileID: 100000, guid: 9f5586fbe7bb047cb99bc0346bb2e0b0, type: 2}
@@ -2510,7 +2510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageColor: {r: .352941155, g: .352941155, b: .352941155, a: 1}
-  defColor: {r: 1, g: 1, b: 1, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
   damageState: 0
   health: 0
   debris: {fileID: 100000, guid: 9f5586fbe7bb047cb99bc0346bb2e0b0, type: 2}
@@ -3385,7 +3385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageColor: {r: .352941155, g: .352941155, b: .352941155, a: 1}
-  defColor: {r: 1, g: 1, b: 1, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
   damageState: 0
   health: 0
   debris: {fileID: 100000, guid: 9f5586fbe7bb047cb99bc0346bb2e0b0, type: 2}
@@ -3699,7 +3699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageColor: {r: .352941155, g: .352941155, b: .352941155, a: 1}
-  defColor: {r: 1, g: 1, b: 1, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
   damageState: 0
   health: 0
   debris: {fileID: 100000, guid: 9f5586fbe7bb047cb99bc0346bb2e0b0, type: 2}
