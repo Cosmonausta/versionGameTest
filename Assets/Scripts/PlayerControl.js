@@ -119,12 +119,9 @@ function FixedUpdate() {
 	if(Input.GetButtonDown("Weapon 3")) {
 		currWeapon = "Stun";
 	}
-<<<<<<< HEAD
 	if(Input.GetButtonDown("Kill") && isAlive) {
 		Death();
 	}
-=======
->>>>>>> da1449d870076a7f478810daaeaef78b8fc2448d
 }
 
 function SetDamageState() {
@@ -190,12 +187,11 @@ function Death(){
 		Debris(); 
 	}
 	this.gameObject.renderer.enabled = false;
-	//yield WaitForSeconds(4);
-	//Application.LoadLevel("Level");
+	yield WaitForSeconds(4);
+	Application.LoadLevel("Level");
 }
 
 function Debris() {
-	Debug.Log("Debris!");
 	var thePos : Vector3 = transform.position;
 	var randSpeed = Random.Range(40f, 65f);
 	var cloneDebris = Instantiate(debris, thePos, Quaternion.identity);

@@ -69,10 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 5
   power: 10
-<<<<<<< HEAD
   boom: {fileID: 100000, guid: bf670376ff9f847be86009720bfdaffb, type: 2}
-=======
->>>>>>> da1449d870076a7f478810daaeaef78b8fc2448d
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
