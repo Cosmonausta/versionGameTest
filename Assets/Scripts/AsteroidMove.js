@@ -36,6 +36,10 @@ function Start () {
 	}
 }
 
-
-
-
+function OnTriggerEnter2D (coll : Collider2D) {
+	if(coll.gameObject.name == "StunBolt"){
+		rigidbody2D.drag = 1;
+		yield WaitForSeconds(3);
+		rigidbody2D.drag = 0;
+	}
+}

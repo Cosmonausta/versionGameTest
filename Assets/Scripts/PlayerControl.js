@@ -21,6 +21,7 @@ var oreBlurponium : int;
 var oreBlorponium : int;
 var projectile : GameObject;
 var missile : GameObject;
+var stunBolt : GameObject;
 var blurpText : GUIText;
 var blorpText : GUIText;
 var healthText : GUIText;
@@ -117,7 +118,7 @@ function FixedUpdate() {
 		currWeapon = "Missile";
 	}
 	if(Input.GetButtonDown("Weapon 3")) {
-		currWeapon = "Stun";
+		currWeapon = "StunBolt";
 	}
 	if(Input.GetButtonDown("Kill") && isAlive) {
 		Death();
@@ -176,6 +177,15 @@ function Fire() {
 			
 			yield WaitForSeconds(5);
 			Destroy(cloneMissile);
+		}else if(currWeapon == "StunBolt"){
+			var cloneStunBolt = Instantiate(stunBolt, thePos, Quaternion.identity);
+			cloneStunBolt.gameObject.name = "StunBolt";
+			cloneStunBolt.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+			cloneStunBolt.gameObject.rigidbody2D.AddForce(cloneStunBolt.transform.right * 18 * 100f);
+			//var mousePosition : Vector3 = worldMousePosition;
+			
+			yield WaitForSeconds(5);
+			Destroy(cloneStunBolt);
 		}
 	}
 }

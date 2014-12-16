@@ -65,7 +65,8 @@ function OnTriggerEnter2D (coll : Collider2D) {
 	var theScale : Vector3 = transform.localScale;
 	var amount = 0;
 	
-	if(coll.gameObject.name == "Projectile" || coll.gameObject.name == "Missile") {
+	if(coll.gameObject.name == "Projectile" || coll.gameObject.name == "Missile" 
+		|| coll.gameObject.name == "StunBolt") {
 		SetDamageState();
 		if(coll.gameObject.name == "Projectile"){
 			health--;
@@ -98,6 +99,19 @@ function OnTriggerEnter2D (coll : Collider2D) {
 				Debris(); 
 		}
 	}
+	if(coll.gameObject.name == "StunBolt"){
+			SetDamageState();
+			yield WaitForSeconds (0.3);
+			SetDamageState();
+			yield WaitForSeconds (0.3);
+			SetDamageState();
+			yield WaitForSeconds (0.3);
+			SetDamageState();
+			yield WaitForSeconds (0.3);
+			SetDamageState();
+			yield WaitForSeconds (0.3);
+			SetDamageState();
+		}
 }
 
 function Debris() {
