@@ -28,9 +28,9 @@ var healthText : GUIText;
 var debris : GameObject; 
 
 function Start() {
-	blurpText = GameObject.Find("BlurpText").guiText;
-	blorpText = GameObject.Find("BlorpText").guiText;
-	healthText = GameObject.Find("HealthText").guiText;
+	blurpText = GameObject.Find("BlurpText").GetComponent.<GUIText>();
+	blorpText = GameObject.Find("BlorpText").GetComponent.<GUIText>();
+	healthText = GameObject.Find("HealthText").GetComponent.<GUIText>();
 	oreBlurponium = 0;
 	oreBlorponium = 0;
 	playerHealth = 5;
@@ -64,7 +64,7 @@ function FixedUpdate() {
 		Boost();
 	}
 	
-	transform.renderer.material.color = defaultColor;
+	transform.GetComponent.<Renderer>().material.color = defaultColor;
 	
 	if(damageState){
 		defaultColor = damageColor;
@@ -83,29 +83,29 @@ function FixedUpdate() {
 	var vert : float = Input.GetAxis("Vertical");
 	
 	//Horizontal movement
-	if(horiz * rigidbody2D.velocity.x < maxSpeed)
+	if(horiz * GetComponent.<Rigidbody2D>().velocity.x < maxSpeed)
 	// ... add a force to the player.
 	{
-		rigidbody2D.AddForce(Vector2.right * horiz * moveForce);
+		GetComponent.<Rigidbody2D>().AddForce(Vector2.right * horiz * moveForce);
 	}
 	// If the player's horizontal velocity is greater than the maxSpeed...
-	if(Mathf.Abs(rigidbody2D.velocity.x) > maxSpeed)
+	if(Mathf.Abs(GetComponent.<Rigidbody2D>().velocity.x) > maxSpeed)
 	// ... set the player's velocity to the maxSpeed in the x axis.
 	{
-	rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
+	GetComponent.<Rigidbody2D>().velocity = new Vector2(Mathf.Sign(GetComponent.<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent.<Rigidbody2D>().velocity.y);
 	}
 	
 	//Vertical movement
-	if(vert * rigidbody2D.velocity.y < maxSpeed)
+	if(vert * GetComponent.<Rigidbody2D>().velocity.y < maxSpeed)
 	// ... add a force to the player.
 	{
-		rigidbody2D.AddForce(Vector2.up * vert * moveForce);
+		GetComponent.<Rigidbody2D>().AddForce(Vector2.up * vert * moveForce);
 	}
 	// If the player's horizontal velocity is greater than the maxSpeed...
-	if(Mathf.Abs(rigidbody2D.velocity.y) > maxSpeed)
+	if(Mathf.Abs(GetComponent.<Rigidbody2D>().velocity.y) > maxSpeed)
 	// ... set the player's velocity to the maxSpeed in the x axis.
 	{
-	rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.y) * maxSpeed, rigidbody2D.velocity.y);
+	GetComponent.<Rigidbody2D>().velocity = new Vector2(Mathf.Sign(GetComponent.<Rigidbody2D>().velocity.y) * maxSpeed, GetComponent.<Rigidbody2D>().velocity.y);
 	}
 	
 	if(Input.GetButtonDown("Restart")) {
@@ -143,10 +143,10 @@ function SetDamageState() {
 function Boost() {
 	if(!isActive && !damageState){
 		isActive = true;
-		rigidbody2D.drag = 3;
+		GetComponent.<Rigidbody2D>().drag = 3;
 	}else if(isActive){
 		isActive = false;
-		rigidbody2D.drag = 7;
+		GetComponent.<Rigidbody2D>().drag = 7;
 	}
 }
 
@@ -163,7 +163,7 @@ function Fire() {
 			var cloneProjectile = Instantiate(projectile, thePos, Quaternion.identity);
 			cloneProjectile.gameObject.name = "Projectile";
 			cloneProjectile.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-			cloneProjectile.gameObject.rigidbody2D.AddForce(cloneProjectile.transform.right * 18 * 100f);
+			cloneProjectile.gameObject.GetComponent.<Rigidbody2D>().AddForce(cloneProjectile.transform.right * 18 * 100f);
 			//var mousePosition : Vector3 = worldMousePosition;
 			
 			yield WaitForSeconds(5);
@@ -172,7 +172,7 @@ function Fire() {
 			var cloneMissile = Instantiate(missile, thePos, Quaternion.identity);
 			cloneMissile.gameObject.name = "Missile";
 			cloneMissile.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-			cloneMissile.gameObject.rigidbody2D.AddForce(cloneMissile.transform.right * 18 * 100f);
+			cloneMissile.gameObject.GetComponent.<Rigidbody2D>().AddForce(cloneMissile.transform.right * 18 * 100f);
 			//var mousePosition : Vector3 = worldMousePosition;
 			
 			yield WaitForSeconds(5);
@@ -181,7 +181,7 @@ function Fire() {
 			var cloneStunBolt = Instantiate(stunBolt, thePos, Quaternion.identity);
 			cloneStunBolt.gameObject.name = "StunBolt";
 			cloneStunBolt.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-			cloneStunBolt.gameObject.rigidbody2D.AddForce(cloneStunBolt.transform.right * 18 * 100f);
+			cloneStunBolt.gameObject.GetComponent.<Rigidbody2D>().AddForce(cloneStunBolt.transform.right * 18 * 100f);
 			//var mousePosition : Vector3 = worldMousePosition;
 			
 			yield WaitForSeconds(5);
@@ -196,7 +196,7 @@ function Death(){
 	for (amount=0; amount<randDebris; amount++){
 		Debris(); 
 	}
-	this.gameObject.renderer.enabled = false;
+	this.gameObject.GetComponent.<Renderer>().enabled = false;
 	yield WaitForSeconds(4);
 	Application.LoadLevel("Level");
 }
@@ -209,7 +209,7 @@ function Debris() {
 	var x = Random.Range(-1f, 1f);
 	var y = Random.Range(-1f, 1f);
 	var direction = Vector2(x, y);
-	cloneDebris.gameObject.rigidbody2D.AddForce(direction * 10 * randSpeed);
+	cloneDebris.gameObject.GetComponent.<Rigidbody2D>().AddForce(direction * 10 * randSpeed);
 	yield WaitForSeconds(45);
 	Destroy(cloneDebris);
 }

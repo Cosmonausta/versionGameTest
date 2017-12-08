@@ -30,6 +30,6 @@ function FixedUpdate() {
 		var direction = blurpPos - thePos;
 		var angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-		rigidbody2D.AddForce(transform.right * 3 * 20f);
+		GetComponent.<Rigidbody2D>().AddForce(transform.right * 3 * 20f);
 	}
 }

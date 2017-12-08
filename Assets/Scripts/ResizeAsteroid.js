@@ -27,9 +27,9 @@ function Start() {
 
 function FixedUpdate() {
 	if(damageState){
-		transform.renderer.material.color = damageColor;
+		transform.GetComponent.<Renderer>().material.color = damageColor;
 	}else{
-		transform.renderer.material.color = defaultColor;
+		transform.GetComponent.<Renderer>().material.color = defaultColor;
 	}
 	if(Input.GetButtonDown("Weapon 1")) {
 		Debris();
@@ -57,7 +57,7 @@ function Resize() {
 		}
 		defaultColor = Color.grey;
 		gameObject.name = "Dead Asteroid";
-		rigidbody2D.drag = 0.5;
+		GetComponent.<Rigidbody2D>().drag = 0.5;
 	}
 }
 
@@ -125,7 +125,7 @@ function Debris() {
 	var x = Random.Range(-1f, 1f);
 	var y = Random.Range(-1f, 1f);
 	var direction = Vector2(x, y);
-	cloneDebris.gameObject.rigidbody2D.AddForce(direction * 10 * randSpeed);
+	cloneDebris.gameObject.GetComponent.<Rigidbody2D>().AddForce(direction * 10 * randSpeed);
 	yield WaitForSeconds(45);
 	Destroy(cloneDebris);
 }
@@ -150,7 +150,7 @@ function OreDrop() {
 		var blurpX = Random.Range(-1f, 1f);
 		var blurpY = Random.Range(-1f, 1f);
 		var blurpDirection = Vector2(blurpX, blurpY);
-		cloneBlurpOre.gameObject.rigidbody2D.AddForce(blurpDirection * 7 * 30f);
+		cloneBlurpOre.gameObject.GetComponent.<Rigidbody2D>().AddForce(blurpDirection * 7 * 30f);
 		break;
 	
 	case "Blorponium":
@@ -160,7 +160,7 @@ function OreDrop() {
 		var blorpX = Random.Range(-1f, 1f);
 		var blorpY = Random.Range(-1f, 1f);
 		var blorpDirection = Vector2(blorpX, blorpY);
-		cloneBlorpOre.gameObject.rigidbody2D.AddForce(blorpDirection * 7 * 30f);
+		cloneBlorpOre.gameObject.GetComponent.<Rigidbody2D>().AddForce(blorpDirection * 7 * 30f);
 		break;
 	}
 }

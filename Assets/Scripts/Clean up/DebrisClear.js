@@ -14,11 +14,11 @@ function OnTriggerEnter2D (coll : Collider2D) {
 		for (var hit : Collider in colliders) {
 
 		 //Here the colliders with tag PhysAffected will be affected by the force
-		 if (!hit && hit.collider.tag=="PhysAffected")
+		 if (!hit && hit.GetComponent.<Collider>().tag=="PhysAffected")
 		     continue;
 		 
-		 if (hit.rigidbody)
-		     hit.rigidbody.AddExplosionForce(power, thePos, radius, 3.0);
+		 if (hit.GetComponent.<Rigidbody>())
+		     hit.GetComponent.<Rigidbody>().AddExplosionForce(power, thePos, radius, 3.0);
     }
 	}
 	Destroy(this.gameObject);

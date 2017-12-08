@@ -11,13 +11,13 @@ function FixedUpdate () {
 	var x = Random.Range(-1f, 1f);
 	var y = Random.Range(-1f, 1f);
 	var direction = Vector2(x, y);
-	if(rigidbody2D.velocity.x < maxSpeed){
-		rigidbody2D.AddForce(direction * 10 * moveForce);
+	if(GetComponent.<Rigidbody2D>().velocity.x < maxSpeed){
+		GetComponent.<Rigidbody2D>().AddForce(direction * 10 * moveForce);
 	}
-	if(Mathf.Abs(rigidbody2D.velocity.x) > maxSpeed)
+	if(Mathf.Abs(GetComponent.<Rigidbody2D>().velocity.x) > maxSpeed)
 	// ... set the player's velocity to the maxSpeed in the x axis.
 	{
-	rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * maxSpeed, rigidbody2D.velocity.y);
+	GetComponent.<Rigidbody2D>().velocity = new Vector2(Mathf.Sign(GetComponent.<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent.<Rigidbody2D>().velocity.y);
 	}
 }
 
@@ -38,8 +38,8 @@ function Start () {
 
 function OnTriggerEnter2D (coll : Collider2D) {
 	if(coll.gameObject.name == "StunBolt"){
-		rigidbody2D.drag = 1;
+		GetComponent.<Rigidbody2D>().drag = 1;
 		yield WaitForSeconds(3);
-		rigidbody2D.drag = 0;
+		GetComponent.<Rigidbody2D>().drag = 0;
 	}
 }
